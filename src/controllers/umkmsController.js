@@ -1,5 +1,6 @@
 import Umkm from "../models/umkmsModel.js"
 import Product from "../models/productsModel.js";
+import Category from "../models/categoriesModel.js";
 import { uploadToCloudinary } from "../utils/cloudinary.js";
 import mongoose from "mongoose";
 
