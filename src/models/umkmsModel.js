@@ -9,7 +9,7 @@ const umkmsSchema = new mongoose.Schema({
         type: String,
         default: null,
     },
-    foto_url: {
+    thumbnail: {
         type: String,
     },
     latitude: {
