@@ -20,6 +20,10 @@ const umkmsSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    alamat: {
+        type: String,
+        required: true,
+    },
     seller_id:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",

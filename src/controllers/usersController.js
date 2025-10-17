@@ -14,30 +14,30 @@ export const registerUser = async (req, res) => {
 
         const isAlreadyRegister = await User.findOne({ email })
         if (isAlreadyRegister){
-            res.status(400).json({ 
+            return res.status(400).json({ 
                 message: "Pengguna dengan email ini telah terdaftar", 
                 status: 400, 
-                data: null});
-        }
-        else {
-            const salt = await bcrypt.genSalt(10);
-            const hashedPassword = await bcrypt.hash(password, salt);
-            const newUser = new User({
-                fullname,
-                email,
-                password: hashedPassword,
-                role: "buyer"
-            });
-            await newUser.save();
-            return res.status(201).json({ 
-                message: "Pengguna berhasil didaftar ",
-                status: 201,
-                data: newUser
+                data: null
             });
         }
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+        const newUser = new User({
+            fullname,
+            email,
+            password: hashedPassword,
+            role: "buyer"
+        });
+
+        await newUser.save();
+        return res.status(201).json({ 
+            message: "Pengguna berhasil didaftar ",
+            status: 201,
+            data: newUser
+        });
 
     } catch(error) {
-        return res.status(500).json({ message: error.message});
+        return res.status(500).json({ message: error.message , status: 500, data: null});
     }
 }
 
