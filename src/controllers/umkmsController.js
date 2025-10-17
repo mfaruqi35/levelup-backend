@@ -422,7 +422,7 @@ export const getAllUmkm = async (req, res) => {
     try {
         const { latitude, longitude } = req.query;
         const umkms = await Umkm.find()
-            .select("nama_umkm thumbnail longitude latitude alamat")
+            .select("nama_umkm thumbnail longitude latitude alamat category_id")
             .populate("category_id", "nama_kategori");
         
         const umkmsWithDetails = await Promise.all(
@@ -458,7 +458,8 @@ export const getAllUmkm = async (req, res) => {
                     nama_umkm: umkm.nama_umkm,
                     thumbnail: umkm.thumbnail,
                     alamat: umkm.alamat,
-                    kategori: umkm.category_id?.nama_kategori || "Tidak ada kategori",
+                    kategori: umkm.category_id?.nama_kategori || "Belum di kategorikan",
+                    kategori_id: umkm.category_id?._id || null,
                     priceRange: priceRange,
                     distance: distance !== null ? `${distance.toFixed(2)} km` : null,
                     latitude: umkm.latitude,

@@ -44,6 +44,7 @@ const umkmsSchema = new mongoose.Schema({
     category_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
+        default: null,
         // required: true,
     },
 }, { timestamps: true });
