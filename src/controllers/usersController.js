@@ -26,7 +26,6 @@ export const registerUser = async (req, res) => {
             fullname,
             email,
             password: hashedPassword,
-            role: "buyer"
         });
 
         await newUser.save();
@@ -51,7 +50,7 @@ export const loginUser = async (req, res) => {
                 data: null});
         }
 
-        const user = await User.findOne({ email:email });
+        const user = await User.findOne({ email: email });
         if (!user) {
             res.status(400).json({ 
                 message: "User tidak ditemukan",
@@ -77,7 +76,7 @@ export const loginUser = async (req, res) => {
             return res.status(500).json({ message: "Kesalahan konfigurasi server." });
         }
                     
-        const token = jwt.sign(payload, JWT_SECRET, {expiresIn: "1d"});
+        const token = jwt.sign(payload, JWT_SECRET, {expiresIn: "30m"});
                     
         return res.status(200).json({
             message: "Login berhasil",
@@ -90,3 +89,79 @@ export const loginUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 }
+
+export const upgradeToSeller = async (req, res) => {
+    try {
+        const userId = req.user.userId;
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({
+                message: "User tidak ditemukan",
+                status: 404,
+                data: null,
+            });
+        }
+
+        if (user.role === 'seller') {
+            return res.status(400).json({
+                message: "User sudah berperan sebagai seller",
+                status: 400,
+                data: null,
+            });
+        }
+
+        user.role = 'seller';
+        user.updated_at = Date.now();
+        await user.save();
+
+        const payload = {
+            userId: user._id,
+            email: user.email,
+            role: user.role,
+        };
+        const JWT_SECRET = process.env.JWT_SECRET;
+        const token = jwt.sign(payload, JWT_SECRET, {expiresIn: "30m"});
+
+        return res.status(200).json({
+            message: "Berhasil upgrade ke seller",
+            status: 200,
+            data: user,
+            token: token
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal server error",
+            status: 500,
+            data: null,
+        });
+    }
+}
+
+export const getUserProfile = async (req, res) => {
+    try {
+        const userId = req.user.userId;
+        
+        const user = await User.findById(userId).select('-password');
+        if (!user) {
+            return res.status(404).json({
+                message: "User tidak ditemukan",
+                status: 404,
+                data: null
+            });
+        }
+
+        return res.status(200).json({
+            message: "Profile berhasil diambil",
+            status: 200,
+            data: user
+        });
+
+    } catch (error) {
+        console.error("Error getting user profile:", error);
+        return res.status(500).json({
+            message: "Terjadi kesalahan saat mengambil profile",
+            status: 500,
+            data: null
+        });
+    }
+};

@@ -23,6 +23,20 @@ const userSchema = new mongoose.Schema({
         default: "buyer",
         required: "true"
     },
+    profile_picture: {
+        type: String,
+        default: null
+    },
+    phone: {
+        type: String,
+        default: null
+    },
+    verification_status: {
+        type: String,
+        enum: ['none', 'pending', 'verified', 'rejected'],
+        default: 'none',
+    },
+
     created_at:{
         type: Date,
         default: Date.now()

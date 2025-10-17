@@ -11,6 +11,18 @@ const umkmsSchema = new mongoose.Schema({
     },
     thumbnail: {
         type: String,
+        default: null,
+    },
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            default:'Point'
+        },
+        coordinates: {
+            type: [Number],
+            required: true,
+        },
     },
     latitude: {
         type: Number,
@@ -32,17 +44,20 @@ const umkmsSchema = new mongoose.Schema({
     category_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category",
-        required: true,
+        // required: true,
     },
-    created_at: {
-        type: Date,
-        default: Date.now()
-    },
-    updated_at: {
-        type: Date,
-        default: Date.now()
+}, { timestamps: true });
+
+umkmsSchema.index({ location: "2dsphere" })
+umkmsSchema.pre('save', function(next){
+    if (this.latitude && this.longitude){
+        this.location = {
+            type: 'Point',
+            coordinates: [this.longitude, this.latitude],
+        };
     }
-})
+    next();
+});
 
 const Umkm = mongoose.model("Umkm", umkmsSchema)
 export default Umkm;

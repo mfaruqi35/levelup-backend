@@ -4,6 +4,8 @@ import { configDotenv } from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import userRouter from "./routes/userRoute.js";
+import umkmRouter from "./routes/umkmRoute.js";
+import sellerVerificationRouter from "./routes/sellerVerificationRoute.js";
 
 configDotenv();
 
@@ -20,6 +22,8 @@ app.use(express.json())
 app.use(cors({ origin: "*", optionsSuccessStatus: 200}));
 app.use(bodyParser.json());
 
-app.use("/user", userRouter)
+app.use("/api/user", userRouter);
+app.use("/api/umkm", umkmRouter);
+app.use("/api/seller-verification", sellerVerificationRouter);
 
 app.listen(PORT, () => console.log(`MongoDB berhasil terkoneksi pada port: ${PORT}`))
