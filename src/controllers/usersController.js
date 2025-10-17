@@ -4,7 +4,7 @@ import User from "../models/usersModel.js";
 
 export const registerUser = async (req, res) => {
     try {
-        const { fullname, email, password, role } = req.body;
+        const { fullname, email, password } = req.body;
         if (!fullname || !email || !password ) {
             res.status(400).json({ 
                 message: "Mohon isi semua field yang diperlukan", 
@@ -26,7 +26,7 @@ export const registerUser = async (req, res) => {
                 fullname,
                 email,
                 password: hashedPassword,
-                role,
+                role: "buyer"
             });
             await newUser.save();
             return res.status(201).json({ 
