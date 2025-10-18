@@ -107,6 +107,40 @@ export const createUmkm = async (req, res) => {
     }
 }
 
+export const getMyUmkms = async (req, res) => {
+    try {
+        const sellerId = req.user.userId;
+
+        // Pastikan user adalah seller
+        if (req.user.role !== 'seller') {
+            return res.status(403).json({
+                message: "Hanya seller yang dapat mengakses UMKM miliknya",
+                status: 403,
+                data: null
+            });
+        }
+
+        // Fetch UMKM milik seller yang login
+        const umkms = await Umkm.find({ seller_id: sellerId })
+            .populate('category_id', 'nama_kategori')
+            .sort({ created_at: -1 });
+
+        return res.status(200).json({
+            message: "Data UMKM berhasil ditemukan",
+            status: 200,
+            data: umkms
+        });
+
+    } catch (error) {
+        console.error("Error getting my UMKMs:", error);
+        return res.status(500).json({
+            message: error.message || "Internal server error",
+            status: 500,
+            data: null
+        });
+    }
+};
+
 export const getNearbyUmkm = async (req, res) => {
     try {
         const { latitude, longitude, radius = 5, kategori, search } = req.query;
