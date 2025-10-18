@@ -1,0 +1,320 @@
+{
+  "users": [
+    {
+      "fullname": "Admin System",
+      "email": "admin@umkmaceh.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "admin"
+    },
+    {
+      "fullname": "Rahmat Hidayat",
+      "email": "rahmat@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "seller"
+    },
+    {
+      "fullname": "Siti Nurhaliza",
+      "email": "siti.nurhaliza@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "seller"
+    },
+    {
+      "fullname": "Ahmad Fahmi",
+      "email": "ahmad.umkm@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "seller"
+    },
+    {
+      "fullname": "Zainab Craft",
+      "email": "zainab.craft@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "seller"
+    },
+    {
+      "fullname": "Ahmad Buyer",
+      "email": "ahmad.buyer@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "buyer"
+    },
+    {
+      "fullname": "Fatimah Zahra",
+      "email": "fatimah.zahra@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "buyer"
+    },
+    {
+      "fullname": "Yusuf Ibrahim",
+      "email": "yusuf.ibrahim@gmail.com",
+      "password": "$2b$10$eJ5VXZ8KqF7Y5hX2P9Z.XeU5K1Y3Z4P6Q7R8S9T0U1V2W3X4Y5Z6A7",
+      "role": "buyer"
+    }
+  ],
+  "categories": [
+    {
+      "nama_kategori": "Makanan & Minuman"
+    },
+    {
+      "nama_kategori": "Fashion & Pakaian"
+    },
+    {
+      "nama_kategori": "Kerajinan Tangan"
+    },
+    {
+      "nama_kategori": "Elektronik"
+    },
+    {
+      "nama_kategori": "Jasa & Layanan"
+    }
+  ],
+  "umkms": [
+    {
+      "nama_umkm": "D'Pos Kupi",
+      "caption": "Kedai kopi modern dengan menu kopi Gayo premium dan makanan ringan khas Aceh. Tempat favorit untuk nongkrong dan work from cafe.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/coffee-shop.jpg",
+      "latitude": 5.555715130986578,
+      "longitude": 95.32574766016191,
+      "alamat": "Jl. T. Nyak Arief No.123, Kuta Alam, Banda Aceh",
+      "seller_index": 1,
+      "category_index": 0
+    },
+    {
+      "nama_umkm": "BaiMee Gallery by Ami",
+      "caption": "Galeri fashion dengan koleksi batik dan pakaian khas Aceh. Menyediakan batik motif Pinto Aceh dan selendang sutra berkualitas tinggi.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/batik-gallery.jpg",
+      "latitude": 5.557839477993415,
+      "longitude": 95.319140772173,
+      "alamat": "Jl. Sultan Iskandar Muda No.45, Banda Aceh",
+      "seller_index": 2,
+      "category_index": 1
+    },
+    {
+      "nama_umkm": "POLEM ACEH Souvenir",
+      "caption": "Toko souvenir khas Aceh dengan berbagai pilihan kerajinan tangan seperti rencong miniatur, gantungan kunci, dan cendera mata unik.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/souvenir.jpg",
+      "latitude": 5.557033258310767,
+      "longitude": 95.3208952691992,
+      "alamat": "Jl. Perdagangan No.78, Banda Aceh",
+      "seller_index": 1,
+      "category_index": 2
+    },
+    {
+      "nama_umkm": "Warkop D7",
+      "caption": "Kedai kopi legendaris sejak 1974. Terkenal dengan kopi saring dan Boh Manok Weng (BMW) - kopi khas Aceh dengan telur dan pinang muda.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/warkop.jpg",
+      "latitude": 5.557796399032185,
+      "longitude": 95.32473568790004,
+      "alamat": "Jl. Ulee Kareng No.234, Banda Aceh",
+      "seller_index": 3,
+      "category_index": 0
+    },
+    {
+      "nama_umkm": "Mie Azi",
+      "caption": "Rumah makan legendaris yang terkenal dengan mie kepiting khas Aceh. Favorit wisatawan lokal dan mancanegara.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/mie-shop.jpg",
+      "latitude": 5.556933,
+      "longitude": 95.3228965,
+      "alamat": "Jl. Diponegoro No.56, Banda Aceh",
+      "seller_index": 3,
+      "category_index": 0
+    },
+    {
+      "nama_umkm": "Kuta Alam Roastery",
+      "caption": "Coffee roastery dengan berbagai menu kopi berkualitas. Tempat luas cocok untuk work from cafe dan membeli biji kopi premium.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/roastery.jpg",
+      "latitude": 5.5573296,
+      "longitude": 95.3199989,
+      "alamat": "Jl. Mohammad Jam No.12, Kuta Alam, Banda Aceh",
+      "seller_index": 1,
+      "category_index": 0
+    },
+    {
+      "nama_umkm": "Marma Cafe",
+      "caption": "Cafe modern kekinian dengan kolam renang di taman belakang. Suasana estetik, menu kopi andalan, makanan berat dan dessert.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/modern-cafe.jpg",
+      "latitude": 5.5578002,
+      "longitude": 95.323598,
+      "alamat": "Jl. Teuku Umar No.89, Banda Aceh",
+      "seller_index": 2,
+      "category_index": 0
+    },
+    {
+      "nama_umkm": "Batik Aceh Heritage",
+      "caption": "Toko batik dengan koleksi batik tulis dan cap khas Aceh. Motif tradisional dan kontemporer tersedia dalam berbagai produk.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/batik-heritage.jpg",
+      "latitude": 5.5562757,
+      "longitude": 95.3244785,
+      "alamat": "Jl. Cut Nyak Dhien No.23, Banda Aceh",
+      "seller_index": 2,
+      "category_index": 1
+    },
+    {
+      "nama_umkm": "Kerajinan Tangan Aceh Jaya",
+      "caption": "Produsen kerajinan tangan khas Aceh seperti tas anyaman, dompet pandan, dan aksesoris dari bahan alami berkualitas tinggi.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/handcraft.jpg",
+      "latitude": 5.557782,
+      "longitude": 95.3212897,
+      "alamat": "Jl. Tgk. Chik Pante Kulu No.67, Banda Aceh",
+      "seller_index": 4,
+      "category_index": 2
+    },
+    {
+      "nama_umkm": "Toko Rempah Nusantara",
+      "caption": "Penjual rempah-rempah khas Aceh seperti bumbu rendang, bumbu kuah beulangong, dan berbagai rempah berkualitas untuk masakan tradisional.",
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/spices.jpg",
+      "latitude": 5.55844,
+      "longitude": 95.3203609,
+      "alamat": "Jl. Panglima Polem No.34, Banda Aceh",
+      "seller_index": 4,
+      "category_index": 0
+    }
+  ],
+  "products": [
+    {
+      "nama_product": "Kopi Arabica Gayo Premium",
+      "deskripsi_produk": "Kopi Gayo Arabica grade 1, proses natural, roasted medium. Berat 250 gram per pack. Aroma floral dengan rasa fruity yang khas.",
+      "harga": 75000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/arabica.jpg",
+      "umkm_index": 0
+    },
+    {
+      "nama_product": "Kopi Robusta Gayo",
+      "deskripsi_produk": "Kopi Gayo Robusta premium, cocok untuk espresso. Berat 250 gram per pack. Rasa bold dengan crema sempurna.",
+      "harga": 60000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/robusta.jpg",
+      "umkm_index": 0
+    },
+    {
+      "nama_product": "Drip Bag Coffee Mix",
+      "deskripsi_produk": "Paket kopi drip bag isi 10 sachet, praktis untuk dibawa bepergian. Mix Arabica dan Robusta.",
+      "harga": 85000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/drip-bag.jpg",
+      "umkm_index": 0
+    },
+    {
+      "nama_product": "Kemeja Batik Pinto Aceh",
+      "deskripsi_produk": "Kemeja batik Aceh motif Pinto Aceh, bahan katun premium, size M-XXL tersedia. Cocok untuk acara formal dan santai.",
+      "harga": 250000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/kemeja-batik.jpg",
+      "umkm_index": 1
+    },
+    {
+      "nama_product": "Selendang Batik Sutra",
+      "deskripsi_produk": "Selendang batik sutra Aceh, motif tradisional, cocok untuk acara formal. Ukuran 200cm x 70cm.",
+      "harga": 150000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/selendang.jpg",
+      "umkm_index": 1
+    },
+    {
+      "nama_product": "Miniatur Rencong",
+      "deskripsi_produk": "Miniatur Rencong ukuran 15cm, dengan tempat kayu ukir. Souvenir khas Aceh berkualitas tinggi.",
+      "harga": 125000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/rencong.jpg",
+      "umkm_index": 2
+    },
+    {
+      "nama_product": "Gantungan Kunci Rencong",
+      "deskripsi_produk": "Gantungan kunci Rencong dari kuningan, souvenir unik dan tahan lama. Cocok untuk oleh-oleh.",
+      "harga": 35000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/keychain.jpg",
+      "umkm_index": 2
+    },
+    {
+      "nama_product": "Kopi Saring Tradisional",
+      "deskripsi_produk": "Kopi Saring - kopi khas Aceh diseduh dengan metode tradisional. 1 gelas porsi regular.",
+      "harga": 15000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/kopi-saring.jpg",
+      "umkm_index": 3
+    },
+    {
+      "nama_product": "Boh Manok Weng (BMW)",
+      "deskripsi_produk": "Boh Manok Weng (BMW) - kopi khas Aceh dengan campuran telur dan pinang muda. Pengalaman unik!",
+      "harga": 20000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/bmw.jpg",
+      "umkm_index": 3
+    },
+    {
+      "nama_product": "Mie Aceh Kepiting",
+      "deskripsi_produk": "Mie Aceh Kepiting - mie goreng dengan topping kepiting segar dan bumbu khas Aceh yang kaya rempah.",
+      "harga": 55000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/mie-kepiting.jpg",
+      "umkm_index": 4
+    },
+    {
+      "nama_product": "Mie Aceh Daging",
+      "deskripsi_produk": "Mie Aceh Daging - mie kuah dengan daging sapi empuk dan sayuran segar. Porsi besar dan mengenyangkan.",
+      "harga": 35000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/mie-daging.jpg",
+      "umkm_index": 4
+    },
+    {
+      "nama_product": "Biji Kopi Arabica 1kg",
+      "deskripsi_produk": "Biji kopi Arabica Gayo 1kg - grade premium untuk bisnis cafe atau home roasting.",
+      "harga": 280000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/green-beans.jpg",
+      "umkm_index": 5
+    },
+    {
+      "nama_product": "Latte Premium",
+      "deskripsi_produk": "Latte Premium - susu segar dengan espresso double shot. Creamy dan nikmat.",
+      "harga": 28000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/latte.jpg",
+      "umkm_index": 5
+    },
+    {
+      "nama_product": "Signature Coffee",
+      "deskripsi_produk": "Signature Coffee - kopi sanger khas Aceh dengan sentuhan modern. Best seller!",
+      "harga": 22000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/signature.jpg",
+      "umkm_index": 6
+    },
+    {
+      "nama_product": "Chocolate Lava Cake",
+      "deskripsi_produk": "Chocolate Lava Cake - dessert premium dengan coklat meleleh di dalamnya. Disajikan dengan ice cream vanilla.",
+      "harga": 35000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/lava-cake.jpg",
+      "umkm_index": 6
+    },
+    {
+      "nama_product": "Dress Batik Tulis",
+      "deskripsi_produk": "Dress batik tulis Aceh dengan motif bunga raya. Bahan katun adem, cocok untuk acara resmi.",
+      "harga": 380000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/dress-batik.jpg",
+      "umkm_index": 7
+    },
+    {
+      "nama_product": "Sarung Batik Cap",
+      "deskripsi_produk": "Sarung batik cap Aceh, motif tradisional, ukuran 110cm x 200cm. Bahan berkualitas tinggi.",
+      "harga": 175000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/sarung.jpg",
+      "umkm_index": 7
+    },
+    {
+      "nama_product": "Tas Anyaman Pandan",
+      "deskripsi_produk": "Tas anyaman pandan ukuran sedang, ramah lingkungan dan tahan lama. Cocok untuk sehari-hari.",
+      "harga": 95000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/tas-anyaman.jpg",
+      "umkm_index": 8
+    },
+    {
+      "nama_product": "Dompet Rajut Katun",
+      "deskripsi_produk": "Dompet rajut tangan dari benang katun dengan motif etnik Aceh. Ukuran praktis untuk dibawa kemana-mana.",
+      "harga": 45000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/dompet.jpg",
+      "umkm_index": 8
+    },
+    {
+      "nama_product": "Bumbu Rendang Aceh",
+      "deskripsi_produk": "Paket bumbu rendang Aceh original - kemasan 250 gram. Rempah lengkap untuk masakan tradisional.",
+      "harga": 38000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/bumbu-rendang.jpg",
+      "umkm_index": 9
+    },
+    {
+      "nama_product": "Bumbu Kuah Beulangong",
+      "deskripsi_produk": "Bumbu kuah beulangong - bumbu khas Aceh untuk masakan gulai. Kemasan 200 gram.",
+      "harga": 32000,
+      "thumbnail": "https://res.cloudinary.com/demo/image/upload/bumbu-beulangong.jpg",
+      "umkm_index": 9
+    }
+  ]
+}

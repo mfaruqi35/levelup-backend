@@ -7,10 +7,6 @@ import { uploadToCloudinary } from '../utils/cloudinary.js';
 export const requestSellerVerification = async (req, res) => {
     try {
         const userId = req.user.userId;
-        
-        console.log('📝 Request verification from user:', userId);
-        console.log('📦 Request body:', req.body);
-        console.log('📁 Files:', req.files);
 
         // Check if user exists
         const user = await User.findById(userId);

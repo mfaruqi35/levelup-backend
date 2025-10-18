@@ -186,9 +186,26 @@ export const getNearbyUmkm = async (req, res) => {
 
         // Add category filter
         if (kategori) {
+            if(!mongoose.Types.ObjectId.isValid(kategori)){
+                console.error("Invalid kagegori objectId:", kategori);
+                return res.status(400).json({
+                    message: "ID kategori tidak valid",
+                    status: 400,
+                    data: null
+                });
+            }
+            const categoryExists = await Category.findById(kategori);
+            if(!categoryExists){
+                return res.status(404).json({
+                    message: "Kategori tidak ditemukan",
+                    status: 404,
+                    data: null
+                });
+            }
+            const categoryObjectId = new mongoose.Types.ObjectId(kategori);
             pipeline.push({
                 $match: {
-                    category_id: new mongoose.Types.ObjectId(kategori)
+                    category_id: categoryObjectId
                 }
             });
         } else if (categoryFilter) {
