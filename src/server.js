@@ -7,6 +7,7 @@ import userRouter from "./routes/userRoute.js";
 import umkmRouter from "./routes/umkmRoute.js";
 import sellerVerificationRouter from "./routes/sellerVerificationRoute.js";
 import categoryRouter from "./routes/categoriesRoute.js";
+import chatbotRouter from "./routes/chatbotRoute.js";
 
 configDotenv();
 
@@ -27,5 +28,6 @@ app.use("/api/user", userRouter);
 app.use("/api/umkm", umkmRouter);
 app.use("/api/seller-verification", sellerVerificationRouter);
 app.use("/api/category", categoryRouter);
+app.use("/api/chatbot", chatbotRouter);
 
 app.listen(PORT, () => console.log(`MongoDB berhasil terkoneksi pada port: ${PORT}`))

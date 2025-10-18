@@ -6,23 +6,23 @@ const chatbotLogsSchema = new mongoose.Schema({
         ref: "User",
         required: true,
     },
-    prompt: {
+    user_message: {
         type: String,
     },
 
-    response: {
+    bot_response: {
         type: String
     },
-
-    context_type:{
+    user_role: {
         type: String,
-        enum:[
-            "search",
-            "caption"
-        ],
+        enum: ['buyer', 'seller'],
         required: true,
-        default: "search",
     },
+
+    context_data:{
+        type: Object,
+        default: {}
+    }
 }, 
     {timestamps: true}
 );
