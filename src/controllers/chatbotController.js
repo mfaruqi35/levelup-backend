@@ -83,7 +83,7 @@ export const chatbotQuery = async (req, res) => {
 
         // Log conversation
         const chatLog = new ChatbotLog({
-            user_id: userId,
+            userId: userId,
             user_role: userRole,
             user_message: message,
             bot_response: botResponse,
