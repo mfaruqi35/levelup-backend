@@ -5,20 +5,20 @@ import {
     chatbotSellerInsights,
     getChatHistory 
 } from '../controllers/chatbotController.js';
-import { authenticateToken } from '../middleware/authMiddleware.js';
+import { verifyToken } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
 // Main chatbot endpoint (buyer & seller)
-router.post('/query', authenticateToken, chatbotQuery);
+router.post('/query', verifyToken, chatbotQuery);
 
 // Buyer specific - product search
-router.post('/search', authenticateToken, chatbotSearchProducts);
+router.post('/search', verifyToken, chatbotSearchProducts);
 
 // Seller specific - business insights
-router.get('/insights', authenticateToken, chatbotSellerInsights);
+router.get('/insights', verifyToken, chatbotSellerInsights);
 
 // Get chat history
-router.get('/history', authenticateToken, getChatHistory);
+router.get('/history', verifyToken, getChatHistory);
 
 export default router;
