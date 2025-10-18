@@ -14,9 +14,9 @@ export const addProduct = async (req, res) => {
             });
         }
         const { umkm_id, nama_product, deskripsi_product, harga } = req.body;
-        if (!umkm_id || !nama_product || !deskripsi_product || !harga) {
+        if (!umkm_id || !nama_product || !harga) {
             return res.status(400).json({
-                message: "Semua field wajib diisi",
+                message: "UMKM, nama produk, dan harga wajib diisi",
                 status: 400,
                 data: null,
             });
