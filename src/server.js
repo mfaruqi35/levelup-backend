@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import userRouter from "./routes/userRoute.js";
 import umkmRouter from "./routes/umkmRoute.js";
 import sellerVerificationRouter from "./routes/sellerVerificationRoute.js";
+import categoryRouter from "./routes/categoriesRoute.js";
 
 configDotenv();
 
@@ -25,5 +26,6 @@ app.use(bodyParser.json());
 app.use("/api/user", userRouter);
 app.use("/api/umkm", umkmRouter);
 app.use("/api/seller-verification", sellerVerificationRouter);
+app.use("/api/category", categoryRouter);
 
 app.listen(PORT, () => console.log(`MongoDB berhasil terkoneksi pada port: ${PORT}`))

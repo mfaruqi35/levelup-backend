@@ -49,11 +49,11 @@ export const createUmkm = async (req, res) => {
             });
         }
 
-        const { nama_umkm, caption, latitude, longitude, alamat } = req.body;
+        const { nama_umkm, caption, latitude, longitude, alamat, category_id } = req.body;
 
-        if(!nama_umkm || !latitude || !longitude || !alamat){
+        if(!nama_umkm || !category_id || !latitude || !longitude || !alamat){
             return res.status(400).json({
-                message: "Nama UMKM, Latitude, Longitude, dan Alamat wajib diisi",
+                message: "Nama UMKM, Kategori, Latitude, Longitude, dan Alamat wajib diisi",
                 status: 400,
                 data: null,
             });
@@ -85,6 +85,7 @@ export const createUmkm = async (req, res) => {
                 coordinates: [parseFloat(longitude), parseFloat(latitude)],
             },
             alamat,
+            category_id,
             seller_id: req.user.userId,
         });
 
@@ -423,7 +424,7 @@ export const getAllUmkm = async (req, res) => {
     try {
         const { latitude, longitude } = req.query;
         const umkms = await Umkm.find()
-            .select("nama_umkm thumbnail longitude latitude alamat category_id")
+            .select("nama_umkm thumbnail longitude latitude alamat")
             .populate("category_id", "nama_kategori");
         
         const umkmsWithDetails = await Promise.all(
@@ -459,8 +460,7 @@ export const getAllUmkm = async (req, res) => {
                     nama_umkm: umkm.nama_umkm,
                     thumbnail: umkm.thumbnail,
                     alamat: umkm.alamat,
-                    kategori: umkm.category_id?.nama_kategori || "Belum di kategorikan",
-                    kategori_id: umkm.category_id?._id || null,
+                    kategori: umkm.category_id?.nama_kategori || "Tidak ada kategori",
                     priceRange: priceRange,
                     distance: distance !== null ? `${distance.toFixed(2)} km` : null,
                     latitude: umkm.latitude,
