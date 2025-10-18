@@ -50,7 +50,7 @@ export const addProduct = async (req, res) => {
         if (req.file){
             try {
                 const upload = await uploadToCloudinary(req.file.path, "products_thumbnails");
-                thumbnail = upload.secure_url;
+                thumbnailUrl = upload.secure_url;
             } catch (error) {
                 console.error("Error uploading thumbnail:", error);
                 if (fs.existsSync(req.file.path)) {

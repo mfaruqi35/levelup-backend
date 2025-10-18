@@ -7,43 +7,14 @@ if (!process.env.GEMINI_API_KEY) {
     throw new Error('GEMINI_API_KEY tidak ditemukan di environment variables');
 }
 
+// Initialize dengan API v1 (bukan v1beta)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-/**
- * Generate response dari Gemini AI
- * @param {string} systemPrompt - System instructions untuk AI
- * @param {string} userMessage - Pesan dari user
- * @param {object} context - Context data (products, umkms, etc.)
- * @returns {Promise<string>} - Response dari AI
- */
 export const generateGeminiResponse = async (systemPrompt, userMessage, context = {}) => {
     try {
+        // Gunakan gemini-pro yang stable dan supported
         const model = genAI.getGenerativeModel({ 
-            model: "gemini-1.5-flash",
-            generationConfig: {
-                temperature: 0.7,
-                topK: 40,
-                topP: 0.95,
-                maxOutputTokens: 2048,
-            },
-            safetySettings: [
-                {
-                    category: "HARM_CATEGORY_HARASSMENT",
-                    threshold: "BLOCK_MEDIUM_AND_ABOVE",
-                },
-                {
-                    category: "HARM_CATEGORY_HATE_SPEECH",
-                    threshold: "BLOCK_MEDIUM_AND_ABOVE",
-                },
-                {
-                    category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                    threshold: "BLOCK_MEDIUM_AND_ABOVE",
-                },
-                {
-                    category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-                    threshold: "BLOCK_MEDIUM_AND_ABOVE",
-                },
-            ],
+            model: "gemini-pro"
         });
 
         // Combine system prompt with context

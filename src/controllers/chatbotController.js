@@ -3,7 +3,7 @@ import Umkm from '../models/umkmsModel.js';
 import Category from '../models/categoriesModel.js';
 import ChatbotLog from '../models/chatbotlogsModel.js';
 import User from '../models/usersModel.js';
-import { generateGeminiResponse } from '../utils/gemini.js';
+import { generateDeepSeekResponse } from '../utils/deepseek.js';
 
 // ============================================
 // MAIN CHATBOT ENDPOINT - Role-based
@@ -66,22 +66,22 @@ export const chatbotQuery = async (req, res) => {
         }
 
         // Generate AI response
-        console.log('🤖 Calling Gemini AI...');
-        console.log('📝 System Prompt Length:', systemPrompt.length); // ⭐ TAMBAHKAN
-        console.log('📝 User Message:', message); // ⭐ TAMBAHKAN
-        console.log('📦 Context Keys:', Object.keys(chatbotContext)); // ⭐ TAMBAHKAN
+        console.log('🤖 Calling DeepSeek AI...');
+        console.log('📝 System Prompt Length:', systemPrompt.length);
+        console.log('📝 User Message:', message);
+        console.log('📦 Context Keys:', Object.keys(chatbotContext));
         
         let botResponse;
         
         try {
-            botResponse = await generateGeminiResponse(
+            botResponse = await generateDeepSeekResponse(
                 systemPrompt, 
                 message, 
                 chatbotContext
             );
-            console.log('✅ Gemini response received');
+            console.log('✅ DeepSeek response received');
         } catch (aiError) {
-            console.error('❌ Gemini error:', aiError);
+            console.error('❌ DeepSeek error:', aiError);
             botResponse = 'Maaf, saya sedang mengalami gangguan teknis. Silakan coba lagi dalam beberapa saat. Tim kami akan segera memperbaiki masalah ini.';
         }
 
