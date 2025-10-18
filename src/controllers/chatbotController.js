@@ -67,6 +67,10 @@ export const chatbotQuery = async (req, res) => {
 
         // Generate AI response
         console.log('🤖 Calling Gemini AI...');
+        console.log('📝 System Prompt Length:', systemPrompt.length); // ⭐ TAMBAHKAN
+        console.log('📝 User Message:', message); // ⭐ TAMBAHKAN
+        console.log('📦 Context Keys:', Object.keys(chatbotContext)); // ⭐ TAMBAHKAN
+        
         let botResponse;
         
         try {
