@@ -20,8 +20,8 @@ const db = mongoose.connection;
 db.on("Error", (error) => console.error(error));
 db.once("Open", () => console.log("Connected to MongoDB"));
 
+app.use(cors({ origin: "*", optionsSuccessStatus: 200})); 
 app.use(express.json())
-app.use(cors({ origin: "*", optionsSuccessStatus: 200, credentials: true })); 
 app.use(bodyParser.json());
 
 app.use("/api/user", userRouter);
