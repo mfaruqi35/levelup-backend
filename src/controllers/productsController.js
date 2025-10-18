@@ -1,6 +1,6 @@
-import Product from "../models/productsModel";
-import Umkm from "../models/umkmsModel";
-import { uploadToCloudinary } from "../utils/cloudinary";
+import Product from "../models/productsModel.js";
+import Umkm from "../models/umkmsModel.js";
+import { uploadToCloudinary } from "../utils/cloudinary.js";
 import fs from "fs";
 
 export const addProduct = async (req, res) => {
