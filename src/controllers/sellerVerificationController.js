@@ -199,12 +199,26 @@ export const getPendingVerifications = async (req, res) => {
         const verifications = await SellerVerification.find({ status: 'pending' })
             .populate('user_id', 'fullname email')
             .populate('category_id', 'nama_kategori')
-            .sort({ createdAt: -1 });
+            .sort({ createdAt: -1 })
+            .lean();
 
+        const cleanedVerifications = verifications.map(v => {
+            if (!v.category_id) {
+                console.warn(`⚠️ Verification ${v._id} has no category_id`);
+                return {
+                    ...v,
+                    category_id: {
+                        _id: null,
+                        nama_kategori: 'Tidak ada kategori'
+                    }
+                };
+            }
+            return v;
+        });
         return res.status(200).json({
             message: 'Berhasil mengambil data verifikasi pending',
             status: 200,
-            data: verifications
+            data: cleanedVerifications
         });
 
     } catch (error) {
