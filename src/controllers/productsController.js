@@ -22,8 +22,8 @@ export const addProduct = async (req, res) => {
             });
         }
 
-        const pricceNum = parseFloat(harga);
-        if(isNaN(pricceNum) || pricceNum < 0){
+        const priceNum = parseFloat(harga);
+        if(isNaN(priceNum) || priceNum < 0){
             return res.status(400).json({
                 message: "Harga harus berupa angka positif",
                 status: 400,
@@ -67,7 +67,7 @@ export const addProduct = async (req, res) => {
             umkm_id,
             nama_product,
             deskripsi_produk: deskripsi_product || '',
-            harga: pricceNum,
+            harga: priceNum,
             thumbnail: thumbnailUrl,
         });
 
@@ -285,18 +285,26 @@ export const deleteProduct = async (req, res) => {
 };
 
 export const getAllProducts = async (req, res) => {
-    try{
+    try {
+        console.log('📦 GET ALL PRODUCTS REQUEST');
+        
+        // Fetch all products dengan semua field yang dibutuhkan
         const products = await Product
             .find()
-            .select("nama_product thumbnail harga");
+            .select("_id umkm_id nama_product thumbnail harga deskripsi_produk created_at updated_at")
+            .populate('umkm_id', 'nama_umkm alamat thumbnail') // Optional: populate UMKM info
+            .sort({ created_at: -1 }); // Sort by newest first
+        
+        console.log(`✅ Found ${products.length} products`);
         
         return res.status(200).json({ 
             message: "Data produk berhasil di fetch",
             status: 200,
             data: products,
-        })
+        });
 
     } catch (error) {
+        console.error('❌ Error fetching all products:', error);
         res.status(500).json({
             message: error.message || "Internal server error",
             status: 500,
@@ -304,3 +312,39 @@ export const getAllProducts = async (req, res) => {
         });
     }
 }
+
+export const getProductById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log('🔍 GET PRODUCT BY ID REQUEST:', id);
+        
+        const product = await Product.find({ umkm_id: id })
+            .select("_id umkm_id nama_product thumbnail harga deskripsi_produk created_at updated_at")
+            .populate('umkm_id', 'nama_umkm alamat thumbnail'); // Optional: populate UMKM info
+
+        if (!product) {
+            console.log('❌ Product not found:', id);
+            return res.status(404).json({
+                message: "Produk tidak ditemukan",
+                status: 404,
+                data: null,
+            });
+        }
+
+        console.log('✅ Product found:', id);
+        
+        return res.status(200).json({
+            message: "Produk berhasil ditemukan",
+            status: 200,
+            data: product,
+        });
+
+    } catch (error) {
+        console.error('❌ Error fetching product by ID:', error);
+        return res.status(500).json({
+            message: error.message || "Internal server error",
+            status: 500,
+            data: null,
+        });
+    }
+};
